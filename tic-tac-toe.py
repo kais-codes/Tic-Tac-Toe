@@ -1,23 +1,8 @@
-Instructions = ("Hello, welcome to the game of tic-tac-toe. \n"
-                "This is a 2-player game in which both players try to connect "
-                "three of their pieces in a row in a 3x3 square\n"
-                "whether it be horizontal, vertical, or diagonal. f neither players meet the winning conditions \n"
-                "after 9 turns, the game will result in a tie tie. Player X starts, "
-                "and turns will alternate after a valid move is made. \n")
-
 Commands = ("Your available commands are: \n"
-            "1. game.make_move(pos1, pos2): where pos1 is your row position, and pos2 position is your column,"
+            "1. game.make_move(pos1, pos2): where pos1 is your column position, and pos2 is your row position,"
             " with (0,0) being top left and (2,2) being bottom right \n"
             "2. game.print_board() to see the current board \n"
-            "3. game.get_player_turn() to see whose turn it is \n"
-            "4. game.get_commands() to see the commands again")
-
-show_instructions = input("Do you want to see the instructions? \n"
-                          "Y or N?: ").upper()
-
-if show_instructions == "Y":
-    print(Instructions)
-    print(Commands)
+            "3. game.get_player_turn() to see whose turn it is \n")
 
 class TicTacToe:
     """
@@ -94,12 +79,15 @@ class TicTacToe:
         return self._game_state
 
     def get_commands(self):
-        """Displays the methods available for player use"""
-        global Instructions
+        """
+        Displays the methods available for player use
+        """
         print(Commands)
 
     def check_for_win(self):
-        """Checks if there are any winnings moves"""
+        """
+        Checks if there are any winnings moves
+        """
 
         # checks for vertical wins
         if self._game_board[0][0] == "X" and self._game_board[0][1] == "X" and self._game_board[0][2] == "X":
@@ -182,9 +170,22 @@ class TicTacToe:
 
         if self.get_turns_remaining() == 0:
             self.set_game_state("TIED")
-            return self._game_state
+            print(self._game_state)
 
 
 game = TicTacToe()
+game.get_commands()
 
-# ----------- Play using the game commands under here ----------
+# ----------- Play using the game commands under this line ----------
+
+
+
+
+
+
+
+
+
+# ----------- Play using the game commands above this line ----------
+
+game.print_board()
